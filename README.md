@@ -1,73 +1,141 @@
-# React + TypeScript + Vite
+# Grade Calculator App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and intuitive web application that calculates student grades based on their test scores. Built with React and TypeScript, this app helps students and educators quickly determine percentage grades and letter grades.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Multiple Score Input**: Enter multiple test scores separated by commas
+- **Percentage Calculation**: Automatically calculates the percentage based on total possible score
+- **Letter Grade Assignment**: Converts percentages to letter grades (A, B, C, F)
+- **Pass/Fail Indicator**: Shows whether the student passed or failed
+- **Real-time Validation**: Provides instant feedback on input validity
+- **Clean UI**: Simple, user-friendly interface with visual feedback
 
-## React Compiler
+## Grading Scale
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **A**: 80% and above
+- **B**: 60% - 79%
+- **C**: 50% - 59%
+- **F**: Below 50%
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React** - UI library
+- **TypeScript** - Type-safe JavaScript
+- **Material-UI** - Alert components
+- **CSS3** - Custom styling
+- **Vite** - Build tool (assumed)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Prerequisites
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Node.js (v14 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/anjaneew/grade-app2.git
+cd grade-app2
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. Install dependencies:
+```bash
+npm install
 ```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+4. Open your browser and navigate to `http://localhost:5173` (or the port shown in your terminal)
+
+## Usage
+
+1. **Enter Test Scores**: Input your test scores separated by commas (e.g., `85, 90, 78, 92`)
+2. **Enter Total Score**: Input the maximum possible score for the test
+3. **Click Submit**: The app will calculate your percentage and display your letter grade
+4. **View Results**: See your total score, percentage, letter grade, and pass/fail status
+
+### Example
+
+```
+Test Scores: 85, 90, 78
+Total Score: 100
+Result: 253/100 = 84.33% → Grade A → PASSED
+```
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── Calculator.tsx    # Main calculator component with input form
+│   └── GradeCard.tsx     # Results display component
+├── App.tsx               # Root component
+└── App.css               # Global styles
+```
+
+## Development
+
+### Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+
+### Component Overview
+
+**Calculator Component**
+- Manages input state for scores and total
+- Validates user input
+- Calculates total score from comma-separated values
+- Displays success/warning alerts
+
+**GradeCard Component**
+- Receives calculated scores as props
+- Computes percentage grade
+- Determines letter grade based on percentage
+- Shows pass/fail status
+
+## Deployment
+
+This app is deployed on Vercel. To deploy your own version:
+
+1. Push your code to GitHub
+2. Import the project in Vercel
+3. Deploy with default settings
+
+Visit the live app: [Add your Vercel URL here]
+
+## Known Issues
+
+- Grade thresholds are hardcoded (consider making them configurable)
+- No data persistence (scores are lost on page refresh)
+- Limited error handling for edge cases
+
+## Future Enhancements
+
+- [ ] Add support for weighted grades
+- [ ] Save calculation history
+- [ ] Export results as PDF
+- [ ] Support for multiple grading scales
+- [ ] Dark mode support
+- [ ] Mobile-responsive improvements
+
+
+## License
+
+All rights reserved
+
+## Author
+
+Anjanee Sewvandika Wijewardana 2025 (https://github.com/anjaneew)
+
+## Acknowledgments
+
+- Material-UI for the alert components
+- React and TypeScript communities for excellent documentation
