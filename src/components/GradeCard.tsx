@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "../App.css";
 
 type ScoreTypes = {
   studentTotal: number;
@@ -15,6 +16,7 @@ const GradeCard = ({studentTotal, paperTotal}: ScoreTypes) => {
 
   const displayResults = (score: number, total: number): void=> {
     try{
+      //getting a percentage
       const studentGrade = (score/total) * 100;
       console.log("student grade " + studentGrade + "%");
       if(studentGrade !== 0){

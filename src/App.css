@@ -1,0 +1,26 @@
+*{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+    background-color: rgb(155, 221, 212);
+}
+
+h1{
+    text-align: center;
+}
+
+p, label{
+    font-size: 16px;
+}
+
+button{
+    background-color: rgb(7, 236, 160);
+    border-color: rgb(8, 226, 161);
+    border-radius: 5px;
+}
+
+button:hover{
+    background-color: rgb(43, 236, 172);
+    border-color: rgb(11, 218, 131);
+    border-radius: 5px;
+    cursor: pointer;
+}
